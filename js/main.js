@@ -146,11 +146,12 @@ function validateForm(){
 		for (var i = 0; i < seleccion.length; ++i){ //recorro la lista de opciones, si se selecciona valor por defecto (selecciona tu bici con value "0") se retorna false
 			if(seleccion[i].value === "0"){
 				//alert('¡Error! Debe seleccionar una opción');
-				var contenedor = document.getElementsByClassName('form-group');
+				var ag = document.getElementsByClassName('form-group input-box')[1].classList.add('seleccion');
+				var contenedor = document.getElementsByClassName('seleccion')[0];
 				var etiqueta = document.createElement('span');
 				var nodoError = document.createTextNode('¡Error! Debe seleccionar una opción');
 				etiqueta.appendChild(nodoError);
-				contenedor.appendChild(etiqueta);					
+				contenedor.appendChild(etiqueta);											
 				return false;
 			}
 		} 
