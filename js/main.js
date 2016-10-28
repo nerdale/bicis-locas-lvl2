@@ -73,13 +73,23 @@ function validateForm(){
 		var correo = document.getElementById('input-email').value;
 		var verificar = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/; //acepta todo tipo de correo incluidos puntos entremedio
 		if( correo === null || correo.length === 0){
-			alert('¡Error! El campo correo no debe estar vacío');
+			//alert('¡Error! El campo correo no debe estar vacío');
+			var contenedor = document.getElementsByClassName('email-container')[0];
+			var etiqueta = document.createElement('span');
+			var nodoError = document.createTextNode('¡Error! El campo correo no debe estar vacío');
+			etiqueta.appendChild(nodoError);
+			contenedor.appendChild(etiqueta);				
 			return false;
 		}else if (verificar.test(correo)){
 			//alert('El correo ' + correo + ' ha sido ingresado correctamente');
 			return true;
 		}else{
-			alert('¡Error! El correo es incorrecto, por favor ingrese un dato válido');
+			//alert('¡Error! El correo es incorrecto, por favor ingrese un dato válido');
+			var contenedor = document.getElementsByClassName('email-container')[0];
+			var etiqueta = document.createElement('span');
+			var nodoError = document.createTextNode('¡Error! El correo es incorrecto, por favor ingrese un dato válido');
+			etiqueta.appendChild(nodoError);
+			contenedor.appendChild(etiqueta);			
 			return false;
 		}
 	}
@@ -89,13 +99,28 @@ function validateForm(){
 	function password(){
 		var contrasenia = document.getElementById('input-password').value;
 		if(contrasenia === null || contrasenia.length === 0){
-			alert('¡Error! El campo password no debe estar vacío');
+			//alert('¡Error! El campo password no debe estar vacío');
+			var contenedor = document.getElementsByClassName('sr-only')[0];
+			var etiqueta = document.createElement('span');
+			var nodoError = document.createTextNode('¡Error! El campo password no debe estar vacío');
+			etiqueta.appendChild(nodoError);
+			contenedor.appendChild(etiqueta);				
 			return false;
 		}else if (contrasenia.length < 6 ) { //valida largo contraseña
-			alert('¡Error! La contraseña debe tener al menos 6 caracteres');
+			//alert('¡Error! La contraseña debe tener al menos 6 caracteres');
+			var contenedor = document.getElementsByClassName('sr-only')[0];
+			var etiqueta = document.createElement('span');
+			var nodoError = document.createTextNode('¡Error! La contraseña debe tener al menos 6 caracteres');
+			etiqueta.appendChild(nodoError);
+			contenedor.appendChild(etiqueta);				
 			return false;
 		}else if(contrasenia === 'password' || contrasenia === '123456' || contrasenia === '098754'){ //valida string inválidos
-			alert('¡Error! Contraseña inválida');
+			//alert('¡Error! Contraseña inválida');
+			var contenedor = document.getElementsByClassName('sr-only')[0];
+			var etiqueta = document.createElement('span');
+			var nodoError = document.createTextNode('¡Error! Contraseña inválida');
+			etiqueta.appendChild(nodoError);
+			contenedor.appendChild(etiqueta);				
 			return false;
 		}else{
 			//alert('La contraseña ha sido ingresado correctamente')
@@ -120,7 +145,12 @@ function validateForm(){
 		var seleccion = document.getElementsByTagName('select'); //selecciono por etiqueta select
 		for (var i = 0; i < seleccion.length; ++i){ //recorro la lista de opciones, si se selecciona valor por defecto (selecciona tu bici con value "0") se retorna false
 			if(seleccion[i].value === "0"){
-				alert('¡Error! Debe seleccionar una opción');
+				//alert('¡Error! Debe seleccionar una opción');
+				var contenedor = document.getElementsByClassName('form-control')[0];
+				var etiqueta = document.createElement('span');
+				var nodoError = document.createTextNode('¡Error! Debe seleccionar una opción');
+				etiqueta.appendChild(nodoError);
+				contenedor.appendChild(etiqueta);					
 				return false;
 			}
 		} 
