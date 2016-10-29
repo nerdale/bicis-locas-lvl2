@@ -5,11 +5,11 @@ function validateForm(){
 		var nombre = document.getElementById('name').value;
 		if (nombre === null || nombre.length === 0){
 			//alert('¡Error! El campo nombre no debe estar vacío');
-			var contenedor = document.getElementsByClassName('name-container')[0];
-			var etiqueta = document.createElement('span');
-			var nodoError = document.createTextNode('¡Error! El campo nombre no debe estar vacío');
-			etiqueta.appendChild(nodoError);
-			contenedor.appendChild(etiqueta);	
+			var contenedor = document.getElementsByClassName('name-container')[0]; //declaro el contenedor de el nuevo elemento
+			var etiqueta = document.createElement('span'); //creo el nuevo elemento
+			var nodoError = document.createTextNode('¡Error! El campo nombre no debe estar vacío'); //creo el nodo de texto con msje a usuario
+			etiqueta.appendChild(nodoError); //paso el nodo de texto al elemento
+			contenedor.appendChild(etiqueta);	//paso el elemento al contenedor declarado al principio
 			return false;
 		}else if(nombre.substring(0,1) !== nombre.substring(0,1).toUpperCase()){ //validación primer caracter === primer caract mayus.
 			//alert('¡Error! El primer caracter del campo nombre debe ser mayúscula');
@@ -146,7 +146,7 @@ function validateForm(){
 		for (var i = 0; i < seleccion.length; ++i){ //recorro la lista de opciones, si se selecciona valor por defecto (selecciona tu bici con value "0") se retorna false
 			if(seleccion[i].value === "0"){
 				//alert('¡Error! Debe seleccionar una opción');
-				var ag = document.getElementsByClassName('form-group input-box')[1].classList.add('seleccion');
+				var ag = document.getElementsByClassName('form-group input-box')[1].classList.add('seleccion'); //agrego clase a div contenedor de lista desplegable
 				var contenedor = document.getElementsByClassName('seleccion')[0];
 				var etiqueta = document.createElement('span');
 				var nodoError = document.createTextNode('¡Error! Debe seleccionar una opción');
